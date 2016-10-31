@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.11.3.js"></script>
+		<script src="js/underscore.min.js"></script>
+		<script src="js/backbone.min.js"></script>
+		<script src="js/application.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet" />
+		<link href="css/student.css" rel="stylesheet" />
+		<style>
+			table{
+				width: 300px !important;
+			}
+		</style>
+	</head>
+	<body>
+
+			<!--<script>
+				var tpl = _.template("<%console.log(str)%>");
+				tpl({ str: '姓名：陶国荣' });
+				var tpl_ = _.template("<%=str%>");
+				console.log(tpl_({str: '姓名：陶国荣'}));
+				var _tpl = _.template("<%-str%>");
+				console.log(_tpl({str: "姓/'名'&：<陶>国荣"}));
+			</script>-->
+			<!--<script type="text/template" id="tpl">
+				<% var intSumScore = 0,intAveScore = 0;
+					for (var i=0;i<list.length;i++){ %>
+						<% var item = list[i] %>
+						<li>
+							<span><%=item.StuId%></span>
+							<span><%=item.Name%></span>
+							<span><%=item.Sex%></span>
+							<span><%=item.Score%></span>
+						</li>
+						<%
+							intSumScore += parseInt(item.Score)
+							intAveScore = intSumScore/list.length;
+					}%>
+					<li>
+						<span>平均分:</span>
+						<span><%=intAveScore%></span>
+						<span>总分:</span>
+						<span><%=intSumScore%></span>
+					</li>
+			</script>
+			<ul id="element">
+				<li>
+					<span>学号</span>
+					<span>姓名</span>
+					<span>性别</span>
+					<span>总分</span>
+				</li>
+			</ul>
+			<script type="text/javascript">
+				var ele = $('#element');
+				var tpl = $('#tpl').html();
+				var data = {
+					list:[
+						{StuId:'s0101',Name:'刘小明',Sex:'男',Score:'345'},
+						{StuId:'s0102',Name:'李清燕',Sex:'女',Score:'445'},
+						{StuId:'s0103',Name:'张二保',Sex:'男',Score:'355'},
+						{StuId:'s0104',Name:'陈明基',Sex:'男',Score:'564'}
+					]
+				}
+				
+				var gati = _.template(tpl,data);
+				ele.append(gati);
+			</script>-->
+<script type="text/template" id="tpl">
+    <%  var intSumScore=0,intAveScore=0;
+    	
+        for(var i = 0; i < data.length; i++) { %>
+        <% var item = data[i] %>
+        <tr>
+            <td><%=item.StuId%></td>
+            <td><%=item.Name%></td>
+            <td><%=item.Sex%></td>
+            <td><%=item.Score%></td>
+        </tr>
+        <%
+           intSumScore+=parseInt(item.Score)
+           intAveScore=intSumScore/data.length;
+        } %>
+        <tr>
+           <td>平均分：</td>
+           <td><%=intAveScore%></td>
+           <td>总分：</td>
+           <td><%=intSumScore%></td>
+        </tr>
+</script>
+<table id="element" class="table table-striped">
+    <tr>
+       <td>学号</td>
+       <td>姓名</td>
+       <td>性别</td>
+       <td>总分</td>
+    </tr>
+</table>
+<script type="text/javascript">
+    var ele = $('#element'),
+        tpl = $('#tpl').html();
+    var data = [
+    	{ StuId: 's0101', Name: '刘小明',
+              Sex: '男', Score: '345' },
+            { StuId: 's0102', Name: '李清燕',
+              Sex: '女', Score: '445' },
+            { StuId: 's0103', Name: '张二保',
+              Sex: '男', Score: '355' },
+            { StuId: 's0104', Name: '陈明基',
+              Sex: '男', Score: '564' },
+            { StuId: 's0105', Name: '舒明珠',
+              Sex: '女', Score: '543' }
+    ]
+    var html = _.template(tpl, data);
+    ele.append(html);
+</script>
+	</body>
+
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>net-backbone.js-Hello World</title>
+    <script src="js/jquery-1.11.3.js"></script>  
+	<script src="js/underscore.js"></script>  
+	<script src="js/backbone.js"></script>  
+    
+</head>  
+<body>  
+
+<script>  
+var AppRouter = Backbone.Router.extend({
+
+routes: {
+
+"*actions" : "defaultRoute"
+
+},
+
+defaultRoute : function(actions){
+
+alert(actions);
+
+}
+
+});
+
+var app_router = new AppRouter;
+
+Backbone.history.start();
+</script>  
+</body>  
+
+
+</html>  
