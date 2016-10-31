@@ -1,0 +1,63 @@
+.showbox{
+	position: relative;
+	margin: 10px auto;
+	height: 400px;
+	width: 1000px;
+	border: 1px solid #ddd;
+}
+.sendMessage{
+	width: 400px;
+	height: 50px;
+	margin: 30px auto;
+	margin-bottom: 0px;
+}
+#genMessage{
+	height: 35px;
+	width: 350px;
+}
+.sendButton{
+	width: 200px;
+	height: 50px;
+	margin: 0px auto;
+}
+.sendButton input{
+	margin: 0px 15px;
+}
+#sendMessage{
+	color: #FAA523;
+	border: 1px solid #FAA523;
+}
+.messageList{
+	
+}
+#search-input{
+	width: 700px;
+	margin: 0px auto;
+}
+@-webkit-keyframes gogo{
+	0%{
+		position: absolute;
+		left: 50px;
+	}
+	50%{
+		position: absolute;
+		left: 500px;
+	}
+	100%{
+		position: absolute;
+		left: 900px;
+		
+	}
+	
+}
+.messagePosition{
+	-webkit-animation:gogo 5s  linear infinite;
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	width: auto;
+	background: #eee;
+	border: 1px dotted orchid;
+	border-radius: 5px;
+	text-align: center;
+}
