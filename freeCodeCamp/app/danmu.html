@@ -5,8 +5,18 @@
 		<title>弹幕</title>
 		<link rel="stylesheet" href="../build/bootstrap.css" />
 		<link rel="stylesheet" href="../dist/style.css" />
+		<style>
+			
+		</style>
 	</head>
 	<body>
+		<div class="header">
+			<ul>
+				<li data-toggle="modal" data-target="#myModal1" >注册</li>
+				<li data-toggle="modal" data-target="#myModal2" >登录</li>
+			</ul>
+		</div>
+		<br />
 		<div class="container">
 			<div class="showbox"></div>
 			<div class="sendMessage">
@@ -19,7 +29,65 @@
 				<input type="button" id="emptyMessage" class="btn btn-default" value="清屏" />
 			</div>
 		</div>
+		<!-- 注册Modal -->
+		<div class="modal fade" id="myModal1" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" onclick="closeModal()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title" id="myModalLabel">注册</h4>
+		      </div>
+		      <div class="modal-body">
+		        <input id="usernameR" class="form-control" placeholder="用户名" />
+		        <input id="passwordR" type="password" class="form-control" placeholder="密码" />
+		        <input id="password1R" type="password" class="form-control" placeholder="确认密码" /><span class="warn">两次输入不一致</span>
+		        <p>
+		        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal()">返回</button>
+		        <button id="register" type="button" class="btn btn-primary">提交</button>
+		        </p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- 登录Modal -->
+		<div class="modal fade" id="myModal2" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" onclick="closeModal()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title" id="myModalLabel">登录</h4>
+		      </div>
+		      <div class="modal-body">
+		        <input id="usernameL" class="form-control" placeholder="登录名" />
+		        <input id="passwordL" type="password" class="form-control" placeholder="密码" />
+		        <p class="warn">登录名或密码错误</p>
+		        <p>
+		        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal()">返回</button>
+		        <button id="login" type="button" class="btn btn-primary">登录</button>
+		        </p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- 警告modal -->
+		<div class="modal fade" id="warnModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">警告</h4>
+					</div>
+					<div class="modal-body">
+						<p>请先进行注册</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<script src="../build/jquery-1.11.3.js"></script>
+		<script src="../build/modal.js"></script>
 		<script src="../dist/global.js"></script>
 	</body>
 </html>
