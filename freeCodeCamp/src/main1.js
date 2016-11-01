@@ -55,7 +55,8 @@ $(document).ready(function(){
 	}
 	setInterval(empty1, 50000);
 
-var usersInfo = [];
+//var usersInfo = [];
+var usersInfo = new Map(); 
 //关闭modal 清空input
 function closeModal(){
 	$('.modal-body input').val('');
@@ -67,7 +68,7 @@ $('#register').click(function(){
 	var password1R = $('#password1R').val();
 	if(passwordR == password1R){
 		//console.log(usernameR);
-		usersInfo.push(usernameR);
+		usersInfo.set(usernameR,passwordR);
 		$('#myModal1').modal('hide');
 		closeModal();
 	}else{
@@ -80,10 +81,20 @@ $('#login').click(function(){
 	var usernameL = $('#usernameL').val();
 	console.log(usersInfo);
 	console.log(usernameL);
-	if(usersInfo.indexOf(usernameL)== -1){
-		$('#warnModal').modal('show');
-	}else{
-		if(passwordL !== ''){
+//	if(usersInfo.indexOf(usernameL)== -1){
+//		$('#warnModal').modal('show');
+//	}else{
+//		if(passwordL !== ''){
+//			showInfo.name = usernameL;
+//			$('#myModal2').modal('hide');
+//			closeModal();
+//		}
+//		else{
+//			$('.warn').css('display','inline-block');
+//		}
+//	}
+	if(usersInfo.has(usernameL)){
+		if(passwordL == usersInfo.get(usernameL)){
 			showInfo.name = usernameL;
 			$('#myModal2').modal('hide');
 			closeModal();
@@ -91,6 +102,8 @@ $('#login').click(function(){
 		else{
 			$('.warn').css('display','inline-block');
 		}
+	}else{
+		$('#warnModal').modal('show');
 	}
 })
 });

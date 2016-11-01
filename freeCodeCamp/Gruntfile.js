@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 	uglify: {
 		compressjs:{
 			files:{
-				'./js/global.min.js': ['./js/global.js']
+				'./dist/global.min.js': ['./dist/global.js']
 			}
 		}
 	},
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
 			files: [
 				'app/danmu.html',
 				'css/style.css',
-				'js/global.min.js'
+				'dist/global.min.js'
 			]
 		}
 	},
