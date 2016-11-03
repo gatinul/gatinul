@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../build/bootstrap.css" />
+		<link rel="stylesheet" href="../css/main2.css" />
+		<script src="../build/jquery-1.11.3.js"></script>
+		<script src="../build/avalon2.js"></script>
+		<script src="../dist/global.min.js"></script>
+	</head>
+	<body ms-controller='weather'>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<div class="page-header">
+						<h1>天气预报<small>freeCodeCamp practice</small></h1>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<select class="form-control" id="citySelect" ms-duplex="@city">
+						<option>沈阳</option>
+						<option>北京</option>
+						<option>上海</option>
+						<option>广州</option>
+						<option>深圳</option>
+						<option>天津</option>
+						<option>杭州</option>
+						<option>哈尔滨</option>
+					</select>
+				</div>
+			</div>
+			<div class="row contentBody">
+				<div class="col-md-4">
+					<div class="page-header city">
+						<h3>{{@city}}<small>天气预报</small></h3>
+						<span id="weatherImg"></span>
+					</div>
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-success">日期：{{@tdate}}</li>
+						<li class="list-group-item list-group-item-info">天气：{{@info}}</li>
+						<li class="list-group-item list-group-item-warning">温度：{{@temp}}</li>
+						<li class="list-group-item list-group-item-danger">风级：{{@wind}}</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<div class="page-header city">
+						<h3>生活服务</h3>
+					</div>
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-success">穿衣：{{@wear}}</li>
+						<li class="list-group-item list-group-item-info">洗车：{{@clean}}</li>
+						<li class="list-group-item list-group-item-warning">运动：{{@sport}}</li>
+						<li class="list-group-item list-group-item-danger">紫外线：{{@sun}}</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<div class="page-header city">
+						<h3>空气指数</h3>
+					</div>
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-success">时间：{{@time}}</li>
+						<li class="list-group-item list-group-item-info">污染等级：{{@level}}</li>
+						<li class="list-group-item list-group-item-warning">空气质量：{{@quality}}</li>
+						<li class="list-group-item list-group-item-danger">具体：{{@des}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

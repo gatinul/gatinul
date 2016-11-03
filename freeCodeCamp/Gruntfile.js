@@ -10,13 +10,13 @@ module.exports = function(grunt) {
 				style: sassStyle
 			},
 			files: {
-				'./dist/style.css': './css/main1.css'
+				'./dist/style.css': './css/main1.css',
 			}
 		}
 	},
 	concat: {
 		dist:{
-			src: ['./src/main1.js'],
+			src: ['./src/main1.js','./src/main2.js'],
        		dest: './dist/global.js',
 		},
 	},
@@ -32,11 +32,11 @@ module.exports = function(grunt) {
 	},
 	watch: {
 		scripts: {
-			files: ['./src/main1.js'],
+			files: ['./src/main1.js','./src/main2.js'],
 			tasks: ['concat', 'jshint', 'uglify']
 		},
 		sass: {
-			files: ['./css/main1.css'],
+			files: ['./css/main1.css','./css/main2.css'],
 			tasks: ['sass']
 		},
 		livereload: {
@@ -45,7 +45,8 @@ module.exports = function(grunt) {
 			},
 			files: [
 				'app/danmu.html',
-				'css/style.css',
+				'app/weather.html',
+				'dist/style.css',
 				'dist/global.min.js'
 			]
 		}
