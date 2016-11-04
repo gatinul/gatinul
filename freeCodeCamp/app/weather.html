@@ -3,9 +3,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" href="../build/bootstrap.css" />
 		<link rel="stylesheet" href="../css/main2.css" />
 		<script src="../build/jquery-1.11.3.js"></script>
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		<script src="../build/avalon2.js"></script>
 		<script src="../dist/global.min.js"></script>
 	</head>
@@ -19,14 +21,7 @@
 				</div>
 				<div class="col-md-3">
 					<select class="form-control" id="citySelect" ms-duplex="@city">
-						<option>沈阳</option>
-						<option>北京</option>
-						<option>上海</option>
-						<option>广州</option>
-						<option>深圳</option>
-						<option>天津</option>
-						<option>杭州</option>
-						<option>哈尔滨</option>
+						<option ms-for="el in @cities">{{el}}</option>
 					</select>
 				</div>
 			</div>

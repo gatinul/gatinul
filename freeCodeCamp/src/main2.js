@@ -38,8 +38,10 @@ var vm = avalon.define({
 	time : "",
 	level : "",
 	quality : "",
-	des : ""
+	des : "",
+	cities : ["沈阳","北京","上海","天津","重庆","深圳","大连","三亚","哈尔滨","昆明","广州","济南","青岛"]
 });
+
 var weather = new Map();
 $('select').change(function(){
    vm.city = $(this).val();
