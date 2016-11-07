@@ -1,0 +1,48 @@
+body{
+	background: #222;
+}
+
+.modal-body p{
+	height: 60px;
+	width: auto;
+	text-align: center;
+	padding-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.modal-content{
+	background: #333;
+	color: #FFFFFF;
+}
+.square{
+	height: 400px;
+	width: 400px;
+	margin: 100px auto;
+	
+}
+.col-md-4 {
+	width: 120px;
+	height: 120px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+/**= 含有..的 。 ^= 以..开头的*/
+div[id*=left]{
+	border-right: 2px solid white;
+}
+div[id*=right]{
+	border-left: 2px solid white;
+}
+div[id^=top]{
+	border-bottom: 2px solid white;
+}
+div[id^=mid]{
+	border-bottom: 2px solid white;
+}
+.showXO{
+	margin: 50px auto;
+	color: white;
+	font-weight: 600;
+	font-size: 24px;
+}
