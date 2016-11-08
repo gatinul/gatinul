@@ -1,17 +1,16 @@
 var perClick = '';//选择X还是O
 var comClick = '';
-var winArr = [
-	[0,0,0],
-	[0,0,0],
-	[0,0,0]
-]
+var winArr = [0,0,0,0,0,0,0,0,0];
 var gameNum = 0; //数组中0的个数
 var getId = '';
+var comLength = 9;
+var positions = ['top-left','top-mid','top-right','mid-left','mid-mid','mid-right','foot-left','foot-mid','foot-right'];
+var round = 0;
+var playMap = new Map();
 $(document).ready(function(){
 	
 	selectXO();
 	play();
-	
 });
 function selectXO(){
 	$('#Ticmodal').modal({backdrop: 'static', keyboard: false});
@@ -31,70 +30,121 @@ function selectXO(){
 }
 function play(){
 	$('.col-md-4').click(function(){
+		round++;
+		console.log('长'+comLength);
 		getId = this.id;
-		changeName();
-		winArr[a][b]=1;
-		console.log(winArr)
+		changeName(getId);
+		winArr[a]=1;
+		comLength--;
+		removeByValue(positions, getId);
+		console.log(positions);
+		playMap.set(round,a);
+//		console.log(positions)
 		$(this).html('<p class="showXO">'+perClick+'</p>');
+		win();
 		endGame();
+//		console.log(comArr.length);
+//		电脑
+		var comNum = Math.floor((Math.random()*comLength));
+		console.log(comNum);
+		var composition = document.getElementById(positions[comNum]);
+//		console.log(composition);
+		$(composition).html('<p class="showXO">'+comClick+'</p>')
+		comLength--;
+		var removeId = positions[comNum];
+		changeName(removeId);
+		winArr[a]= -1;
+		console.log(winArr);
+//		console.log(removeId);
+		removeByValue(positions, removeId);
+//		console.log(positions);
+		win();
+		endGame();
+		
 	})
 	
 }
 //平局
 function endGame(){ 
-	for(var i=0;i<winArr.length;i++){
-		for(var j=0;j<3;j++){
-			if(winArr[i][j] == 0){
-				gameNum++;
-			};
-		}
-	}
-	console.log(gameNum);
-	if(gameNum<1){
+	
+	if(comLength<1){
 		alert("平局，游戏结束");
+		upload();
 	}
-	gameNum = 0;
+
 }
+//重新加载棋盘
+function upload(){
+	winArr = [0,0,0,0,0,0,0,0,0];
+	comLength = 9;
+	positions = ['top-left','top-mid','top-right','mid-left','mid-mid','mid-right','foot-left','foot-mid','foot-right'];
+	round = 0;
+	$('.col-md-4').html('');
+}
+
 function test(){
 	console.log(gameNum)
 }
-function changeName(){
-	switch (getId) {
+function changeName(yuansu){
+	switch (yuansu) {
 		case "top-left":
 		a='0';
-		b='0';
 		break;
 		case "top-mid":
-		a='0';
-		b='1';
+		a='1';
 		break;
 		case "top-right":
-		a='0';
-		b='2';
+		a='2';
 		break;
 		case "mid-left":
-		a='1';
-		b='0';
+		a='3';
 		break;
 		case "mid-mid":
-		a='1';
-		b='1';
+		a='4';
 		break;
 		case "mid-right":
-		a='1';
-		b='2';
+		a='5';
 		break;
 		case "foot-left":
-		a='2';
-		b='0';
+		a='6';
 		break;
 		case "foot-mid":
-		a='2';
-		b='1';
+		a='7';
 		break;
 		case "foot-right":
-		a='2';
-		b='2';
+		a='8';
 		break;
 	}
+}
+
+//电脑落子
+function comPlay(){
+	var comPosition = $('.able');
+	console.log(comPosition);
+}
+function win(){
+	if((winArr[0]+winArr[1]+winArr[2])==3||(winArr[0]+winArr[3]+winArr[6])==3||
+		(winArr[1]+winArr[4]+winArr[7])==3||(winArr[2]+winArr[5]+winArr[8])==3||
+		(winArr[3]+winArr[4]+winArr[5])==3||(winArr[6]+winArr[7]+winArr[8])==3||
+		(winArr[0]+winArr[4]+winArr[8])==3||(winArr[2]+winArr[4]+winArr[6])==3){
+			alert('您赢了');
+			upload();
+		}
+	else if((winArr[0]+winArr[1]+winArr[2])== -3||(winArr[0]+winArr[3]+winArr[6])== -3||
+		(winArr[1]+winArr[4]+winArr[7])== -3||(winArr[2]+winArr[5]+winArr[8])== -3||
+		(winArr[3]+winArr[4]+winArr[5])== -3||(winArr[6]+winArr[7]+winArr[8])== -3||
+		(winArr[0]+winArr[4]+winArr[8])== -3||(winArr[2]+winArr[4]+winArr[6])== -3){
+			alert('您输了');
+			upload();
+		}
+	else{};
+}
+//删除数组中的元素
+function removeByValue(arr, val) {
+  for(var i=0; i<arr.length; i++) {
+    if(arr[i] == val) {
+      arr.splice(i, 1);
+      break;
+    }
+  }
 }
