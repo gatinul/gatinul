@@ -1,9 +1,8 @@
 var perClick = '';//选择X还是O
-var comClick = '';
-var winArr = [0,0,0,0,0,0,0,0,0];
-var gameNum = 0; //数组中0的个数
-var getId = '';
-var comLength = 9;
+var comClick = '';// 电脑用X还是O
+var winArr = [0,0,0,0,0,0,0,0,0]; // 用来填1或-1
+var getId = ''; //获得玩家点击的div的id
+var comLength = 9; //剩余九宫格的数量
 var positions = ['top-left','top-mid','top-right','mid-left','mid-mid','mid-right','foot-left','foot-mid','foot-right'];
 $(document).ready(function(){
 	
