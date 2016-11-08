@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 	},
 	concat: {
 		dist:{
-			src: ['./src/main1.js','./src/main2.js'],
+			src: ['./src/main1.js','./src/main2.js','./src/main3.js'],
        		dest: './dist/global.js',
 		},
 	},
@@ -32,11 +32,11 @@ module.exports = function(grunt) {
 	},
 	watch: {
 		scripts: {
-			files: ['./src/main1.js','./src/main2.js'],
+			files: ['./src/main1.js','./src/main2.js','./src/main3.js'],
 			tasks: ['concat', 'jshint', 'uglify']
 		},
 		sass: {
-			files: ['./css/main1.css','./css/main2.css'],
+			files: ['./css/main1.css','./css/main2.css','./css/main3.css'],
 			tasks: ['sass']
 		},
 		livereload: {
@@ -46,6 +46,7 @@ module.exports = function(grunt) {
 			files: [
 				'app/danmu.html',
 				'app/weather.html',
+				'app/Tic-Tac-Toe.html',
 				'dist/style.css',
 				'dist/global.min.js'
 			]

@@ -27,7 +27,7 @@ body{
 	text-align: center;
 	vertical-align: middle;
 }
-/**= 含有..的 。 ^= 以..开头的*/
+/* *= 含有..的 。 ^= 以..开头的  -- 画棋盘 */
 div[id*=left]{
 	border-right: 2px solid white;
 }

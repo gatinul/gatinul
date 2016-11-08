@@ -5,12 +5,11 @@ var gameNum = 0; //数组中0的个数
 var getId = '';
 var comLength = 9;
 var positions = ['top-left','top-mid','top-right','mid-left','mid-mid','mid-right','foot-left','foot-mid','foot-right'];
-var round = 0;
-var playMap = new Map();
 $(document).ready(function(){
 	
-	selectXO();
-	play();
+	selectXO(); //选择 X O;
+	play(); //下棋
+	
 });
 function selectXO(){
 	$('#Ticmodal').modal({backdrop: 'static', keyboard: false});
@@ -30,24 +29,24 @@ function selectXO(){
 }
 function play(){
 	$('.col-md-4').click(function(){
-		round++;
-		console.log('长'+comLength);
-		getId = this.id;
-		changeName(getId);
+		//console.log('长'+comLength);
+		getId = this.id; 
+		changeName(getId); 
 		winArr[a]=1;
-		comLength--;
+		comLength--; //
 		removeByValue(positions, getId);
-		console.log(positions);
-		playMap.set(round,a);
+		//console.log(positions);
 //		console.log(positions)
 		$(this).html('<p class="showXO">'+perClick+'</p>');
 		win();
 		endGame();
 //		console.log(comArr.length);
 //		电脑
-		var comNum = Math.floor((Math.random()*comLength));
-		console.log(comNum);
+		var comNum = Math.floor((Math.random()*comLength));//得到0-com.length 长度的整数
+//		console.log(comNum);
 		var composition = document.getElementById(positions[comNum]);
+
+
 //		console.log(composition);
 		$(composition).html('<p class="showXO">'+comClick+'</p>')
 		comLength--;
@@ -68,7 +67,7 @@ function play(){
 function endGame(){ 
 	
 	if(comLength<1){
-		alert("平局，游戏结束");
+		alert("平局，重新开始");
 		upload();
 	}
 
@@ -82,9 +81,6 @@ function upload(){
 	$('.col-md-4').html('');
 }
 
-function test(){
-	console.log(gameNum)
-}
 function changeName(yuansu){
 	switch (yuansu) {
 		case "top-left":
@@ -129,6 +125,7 @@ function win(){
 		(winArr[0]+winArr[4]+winArr[8])==3||(winArr[2]+winArr[4]+winArr[6])==3){
 			alert('您赢了');
 			upload();
+			return 10;
 		}
 	else if((winArr[0]+winArr[1]+winArr[2])== -3||(winArr[0]+winArr[3]+winArr[6])== -3||
 		(winArr[1]+winArr[4]+winArr[7])== -3||(winArr[2]+winArr[5]+winArr[8])== -3||
