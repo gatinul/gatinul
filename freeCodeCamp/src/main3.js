@@ -31,14 +31,19 @@ function play(){
 		//console.log('长'+comLength);
 		getId = this.id; 
 		changeName(getId); 
-		winArr[a]=1;
-		comLength--; //
-		removeByValue(positions, getId);
-		//console.log(positions);
-//		console.log(positions)
-		$(this).html('<p class="showXO">'+perClick+'</p>');
-		win();
-		endGame();
+		if(winArr[a] == 0){
+			winArr[a]=1;
+			comLength--; //
+			removeByValue(positions, getId);
+			//console.log(positions);
+			$(this).html('<p class="showXO">'+perClick+'</p>');
+			win();
+			endGame();
+		}
+		else{
+			return false;
+		}
+		
 //		console.log(comArr.length);
 //		电脑
 		var comNum = Math.floor((Math.random()*comLength));//得到0-com.length 长度的整数
@@ -51,13 +56,16 @@ function play(){
 		comLength--;
 		var removeId = positions[comNum];
 		changeName(removeId);
-		winArr[a]= -1;
-		console.log(winArr);
-//		console.log(removeId);
-		removeByValue(positions, removeId);
-//		console.log(positions);
-		win();
-		endGame();
+		if(winArr[a]==0){
+			winArr[a]= -1;
+			console.log(winArr);
+	//		console.log(removeId);
+			removeByValue(positions, removeId);
+	//		console.log(positions);
+			win();
+			endGame();
+		}
+		
 		
 	})
 	
