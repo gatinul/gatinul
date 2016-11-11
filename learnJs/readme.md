@@ -1,3 +1,3 @@
-## Learn Js
+ï»¿## Learn Js
 2016/11/11
-- Early dec £ºÉùÃ÷ÌáÇ°
+- Early dec ï¼šå£°æ˜æå‰
