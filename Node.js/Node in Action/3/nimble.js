@@ -1,12 +1,33 @@
-// nimble 流程化 让函数一个一个执行
+// nimble (社区附加模块)流程化 让函数一个一个执行
 var flow = require('nimble');
-
-flow.series([
+//并行
+flow.parallel([
 	function(callback){
 		setTimeout(function(){
 			console.log('first');
 			callback();
 		},500);
+	},
+	function(callback){
+		setTimeout(function(){
+			console.log('second');
+			callback();
+		},500);
+	},
+	function(callback){
+		setTimeout(function(){
+			console.log('third');
+			callback();
+		},500);
+	},
+]);
+//串行
+flow.series([
+	function(callback){
+		setTimeout(function(){
+			console.log('first');
+			callback();
+		},1000);
 	},
 	function(callback){
 		setTimeout(function(){

@@ -19,7 +19,7 @@ function readRSSFile(configFilename){
 	});
 }
 function downloadRSSFeed(feedUrl){
-	request({url:feedUrl},function(err,res,body){
+	request({uri:feedUrl},function(err,res,body){
 		if(err) return next(err);
 		if(res.statusCode!=200)
 			return next(new Error('Abnormal response status code'));
