@@ -8,7 +8,7 @@ function makeFun(){
 }
 var myFun = makeFun();
 myFun();
-// 代码2 
+// 代码2
 function makeFun(){
 	var sname = 'sxy';
 	function funny(){
@@ -16,10 +16,10 @@ function makeFun(){
 	}
 	return funny();
 }
-makeFun(); 
+makeFun();
 
-/* 上面两个实现效果一样  1代码让myFun成为一个闭包 闭包做两件事，一个函数还有这个函数的环境  
- 最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。	
+/* 上面两个实现效果一样  1代码让myFun成为一个闭包 闭包做两件事，一个函数还有这个函数的环境
+ 闭包最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。
 */
 
 
@@ -46,7 +46,7 @@ makeFun(21); // 传不到funny函数里去
 function makeAdder(x) {
   function gat (y) {
    console.log(x + y);
-  };
+  }
   return gat;
 }
 var add5 = makeAdder(5);
@@ -68,7 +68,7 @@ var makeCounter = function() {
     value: function() {
       return privateCounter;
     }
-  }  
+};
 };
 
 var counter1 = makeCounter();
