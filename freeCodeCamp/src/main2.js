@@ -20,7 +20,7 @@ $.ajax({
 			vm.level = data.result.data.pm25.pm25.level;
 			vm.quality = data.result.data.pm25.pm25.quality;
 			vm.des = data.result.data.pm25.pm25.des;
-			weather.set(vm.city,vm.info)
+			weather.set(vm.city,vm.info);
 			weatherImg();
 		}
 });
@@ -66,12 +66,12 @@ $('select').change(function(){
 			vm.level = data.result.data.pm25.pm25.level;
 			vm.quality = data.result.data.pm25.pm25.quality;
 			vm.des = data.result.data.pm25.pm25.des;
-			weather.set(vm.city,vm.info)
+			weather.set(vm.city,vm.info);
 			weatherImg();
 		}
 	});
-	
-})
+
+});
 //设置对应天气的图片
 function weatherImg(){
 	var sunrain = weather.get(vm.city);
@@ -85,4 +85,3 @@ function weatherImg(){
 	}
 }
 });
-

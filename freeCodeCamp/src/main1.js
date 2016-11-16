@@ -2,7 +2,7 @@ $(document).ready(function(){
 	var top = 10;
 	var showInfo = {};
 	$('#sendMessage').click(function() {
-		
+
 		if(top <= 350) {
 			top += 30;
 			console.log(top);
@@ -12,7 +12,7 @@ $(document).ready(function(){
 		}
 		// 获取颜色
 		function rgb() {
-			var rgb = ['blue', 'deeppink', 'red', 'green', 'saddlebrown']
+			var rgb = ['blue', 'deeppink', 'red', 'green', 'saddlebrown'];
 			var index = Math.floor((Math.random() * rgb.length));
 			return rgb[index];
 		}
@@ -20,7 +20,7 @@ $(document).ready(function(){
 		//alert(messageColor);
 		var sendMessage = $('#genMessage').val();
 		var showMessage = $('.showbox');
-		if(sendMessage == ''){
+		if(sendMessage === ''){
 			console.warn('空消息');
 		}else{
 			var message = $('<span class="messagePosition">' + '<span class="showInfo">'+showInfo.name+'</span>'+  ':' + sendMessage + '</span>');
@@ -33,7 +33,7 @@ $(document).ready(function(){
 			//	}
 			showMessage.append(message);
 			// 做清空初始化
-			var message = '';
+			message = '';
 			$('#genMessage').val('');
 		}
 	});
@@ -56,7 +56,7 @@ $(document).ready(function(){
 	setInterval(empty1, 50000);
 
 //var usersInfo = [];
-var usersInfo = new Map(); 
+var usersInfo = new Map();
 //关闭modal 清空input
 function closeModal(){
 	$('.modal-body input').val('');
@@ -74,9 +74,9 @@ $('#register').click(function(){
 	}else{
 		$('.warn').css('display','inline-block');
 	}
-})
+});
 $('#login').click(function(){
-	
+
 	var passwordL = $('#passwordL').val();
 	var usernameL = $('#usernameL').val();
 	console.log(usersInfo);
@@ -105,7 +105,5 @@ $('#login').click(function(){
 	}else{
 		$('#warnModal').modal('show');
 	}
-})
 });
-
-
+});

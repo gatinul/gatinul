@@ -5,10 +5,10 @@ var getId = ''; //获得玩家点击的div的id
 var comLength = 9; //剩余九宫格的数量
 var positions = ['top-left','top-mid','top-right','mid-left','mid-mid','mid-right','foot-left','foot-mid','foot-right'];
 $(document).ready(function(){
-	
+
 	selectXO(); //选择 X O;
 	play(); //下棋
-	
+
 });
 function selectXO(){
 	$('#Ticmodal').modal({backdrop: 'static', keyboard: false});
@@ -24,14 +24,14 @@ function selectXO(){
 		}
 		$('#Ticmodal').modal('hide');
 	});
-	
+
 }
 function play(){
 	$('.col-md-4').click(function(){
 		//console.log('长'+comLength);
-		getId = this.id; 
-		changeName(getId); 
-		if(winArr[a] == 0){
+		getId = this.id;
+		changeName(getId);
+		if(winArr[a] === 0){
 			winArr[a]=1;
 			comLength--; //
 			removeByValue(positions, getId);
@@ -43,7 +43,7 @@ function play(){
 		else{
 			return false;
 		}
-		
+
 //		console.log(comArr.length);
 //		电脑
 		var comNum = Math.floor((Math.random()*comLength));//得到0-com.length 长度的整数
@@ -52,11 +52,11 @@ function play(){
 
 
 //		console.log(composition);
-		$(composition).html('<p class="showXO">'+comClick+'</p>')
+		$(composition).html('<p class="showXO">'+comClick+'</p>');
 		comLength--;
 		var removeId = positions[comNum];
 		changeName(removeId);
-		if(winArr[a]==0){
+		if(winArr[a]===0){
 			winArr[a]= -1;
 			console.log(winArr);
 	//		console.log(removeId);
@@ -65,14 +65,14 @@ function play(){
 			win();
 			endGame();
 		}
-		
-		
-	})
-	
+
+
+	});
+
 }
 //平局
-function endGame(){ 
-	
+function endGame(){
+
 	if(comLength<1){
 		alert("平局，重新开始");
 		upload();
@@ -141,7 +141,7 @@ function win(){
 			alert('您输了');
 			upload();
 		}
-	else{};
+	else{}
 }
 //删除数组中的元素
 function removeByValue(arr, val) {
