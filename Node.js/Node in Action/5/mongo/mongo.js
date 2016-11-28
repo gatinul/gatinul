@@ -12,7 +12,7 @@ mongoose.model('Love',Person);//把Person这个信息组发布出去，Love作�
 var Love = mongoose.model('Love'); //拿到这个信息组
 var love = new Love(); // love 会被以复数形式做个表 loves  ！！！实例化Love
 
-love.birthday = 'Sep 29';
+love.birthday = ['Sep 29','Oct 16'];
 love.hobby = 'eat and sleep';
 love.save(function(err){
 	if(err) throw err;
