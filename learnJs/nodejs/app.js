@@ -21,10 +21,10 @@ var path = require('path');
 
 app.use(upload.single('upload'));
 app.use(serveStatic(path.join(__dirname,'public'))); //配置静态文件目录
-app.set("view engine","ejs");//使用ejs引擎
+//app.set("view engine","ejs");//使用ejs引擎
 app.set('views', path.join(__dirname, 'views'));//设置views路径
-// app.engine('.html', ejs.__express);
-// app.set('view engine', 'html');
+app.engine('.html', ejs.__express);
+app.set('view engine', 'html');
 
 app.get('/',routes.show);
 
