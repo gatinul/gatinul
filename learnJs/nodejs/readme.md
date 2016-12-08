@@ -5,7 +5,7 @@
 > * my_app.js 提供avalon模块 与jquery混用get本地json/redis到页面
 > * 现在图片为ejs 模板显示
 
----
+### 文件目录
 
 - ./models : 创建数据库对象
 - ./public : 静态文件默认保存地址 app.js中设定
