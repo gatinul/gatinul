@@ -9,7 +9,8 @@
 		<h1>picture show</h1>
 		<div ms-controller="test">
 			<h3>{{@lname}}</h3>
-			<img src="<%=path%>"/>
+			<p>图片名称：{{@path}}</p>
+			<img ms-attr="{src:@path}"/>
 		</div>
 		<script src="/js/jquery-1.11.3.js"></script>
 		<script src="/js/avalon2.js"></script>

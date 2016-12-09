@@ -26,10 +26,10 @@ app.set('views', path.join(__dirname, 'views'));//设置views路径
 app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
 
-app.get('/',routes.show);
+app.get('/',routes.main);
 
 app.post('/upload',routes.submit);
-
+app.get('/find',routes.find);
 // app.post("/upload",function(req,res){
 //     var file = req.file;
 //     console.log(file.destination);//打印file
