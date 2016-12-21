@@ -1,0 +1,19 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "demo for webpack",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gatinul",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^1.12.15"
+  },
+  "dependencies": {
+    "css-loader": "^0.26.1",
+    "gulp": "^3.9.1",
+    "style-loader": "^0.13.1"
+  }
+}
